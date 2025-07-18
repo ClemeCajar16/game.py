@@ -1,11 +1,13 @@
 import pygame
+import constantes
+
 
 class Personaje(): 
     def __init__(self, x, y):
-        self.forma = pygame.Rect(0, 0, 20, 20) 
+        self.forma = pygame.Rect(0, 0,constantes.ANCHO_JUGADOR , constantes.ALTO_JUGADOR ) 
         self.forma.center = (x, y)
 
     def dibujar(self, interfaz):
-        pygame.draw.rect(interfaz, (0, 255, 0), self.forma)
+        pygame.draw.rect(interfaz, constantes.COLOR_JUGADOR, self.forma)
 
     
