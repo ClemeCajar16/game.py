@@ -19,6 +19,19 @@ while run:
         if event.type == pygame.QUIT:
             run = False
 
+        if event.type == pygame.KEYDOWN:
+            if event.key == 	pygame.K_LEFT: 
+                print("izqierda")
+
+            elif event.key == pygame.K_RIGHT: 
+                print("derecha")
+
+            elif event.key == 	pygame.K_UP:
+                print("arriba")
+            
+            elif event.key == 	pygame.K_DOWN:
+                print("abajo")
+
     pygame.display.update()
 
 pygame.quit()
