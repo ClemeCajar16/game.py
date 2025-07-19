@@ -11,3 +11,7 @@ class Personaje():
         pygame.draw.rect(interfaz, constantes.COLOR_JUGADOR, self.forma)
 
     
+    def movimiento(self, delta_x, delta_y):
+        self.forma.x += delta_x
+        self.forma.y += delta_y
+
