@@ -9,8 +9,9 @@ ventana = pygame.display.set_mode((constantes.ANCHO, constantes.ALTO))
 
 pygame.display.set_caption("zombie.py")
 
-payer = pygame.image.load("assets//img//character//player//01.png")
-jugador = Personaje(x=50, y=50, img=payer)
+player = pygame.image.load("assets//img//character//player//01.png")
+player = pygame.transform.scale(player, (player.get_width() * constantes.SCALA_JUGADOR, player.get_height() * constantes.SCALA_JUGADOR))
+jugador = Personaje(x=50, y=50, img=player)
 
 
 

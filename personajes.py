@@ -3,7 +3,7 @@ import constantes
 
 
 class Personaje(): 
-    def __init__(self, x,img):
+    def __init__(self, x, y, img):
 
         self.image = img
 
@@ -12,7 +12,7 @@ class Personaje():
 
     def dibujar(self, interfaz):
         interfaz.blit(self.image, self.forma)
-        pygame.draw.rect(interfaz, constantes.COLOR_JUGADOR, self.forma)
+       #pygame.draw.rect(interfaz, constantes.COLOR_JUGADOR, self.forma)
 
     
     def movimiento(self, delta_x, delta_y):
