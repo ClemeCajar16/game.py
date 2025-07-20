@@ -49,7 +49,7 @@ while run:
             run = False
 
         if event.type == pygame.KEYDOWN:
-            if event.key == 	pygame.K_LEFT: 
+            if event.key == pygame.K_LEFT: 
                 mover_izquierda = True
 
             elif event.key == pygame.K_RIGHT: 
@@ -60,6 +60,19 @@ while run:
             
             elif event.key == 	pygame.K_DOWN:
                 mover_abajo = True
+
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_LEFT: 
+                mover_izquierda = False
+
+            elif event.key == pygame.K_RIGHT: 
+                mover_derecha = False
+
+            elif event.key == pygame.K_UP:
+                mover_arriba = False
+            
+            elif event.key == pygame.K_DOWN:
+                mover_abajo = False
 
     pygame.display.update()
 
