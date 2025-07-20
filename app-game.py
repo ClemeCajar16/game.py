@@ -3,14 +3,15 @@ import constantes
 from personajes import Personaje
 
 
-
 pygame.init() 
-
-jugador = Personaje(x=50, y=50)
 
 ventana = pygame.display.set_mode((constantes.ANCHO, constantes.ALTO))
 
 pygame.display.set_caption("zombie.py")
+
+payer = pygame.image.load("assets//img//character//player//01.png")
+jugador = Personaje(x=50, y=50, img=payer)
+
 
 
 mover_arriba = False
