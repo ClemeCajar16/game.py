@@ -2,9 +2,11 @@ import pygame
 import constantes
 from personajes import Personaje
 
-jugador = Personaje(x=50, y=50)
+
 
 pygame.init() 
+
+jugador = Personaje(x=50, y=50)
 
 ventana = pygame.display.set_mode((constantes.ANCHO, constantes.ALTO))
 
