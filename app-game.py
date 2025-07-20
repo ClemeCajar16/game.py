@@ -14,7 +14,7 @@ pygame.display.set_caption("zombie.py")
 mover_arriba = False
 mover_abajo = False
 mover_izquierda = False
-mover_derecha = False
+mover_derecha = False 
 
 reloj = pygame.time.Clock()
 
