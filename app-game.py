@@ -16,12 +16,16 @@ mover_abajo = False
 mover_izquierda = False
 mover_derecha = False
 
+reloj = pygame.time.Clock()
+
 
 run = True
 while run: 
+    
+    reloj.tick(constantes.FPS)
 
     ventana.fill(constantes.COLOR_BG)
-    
+
     delta_x = 0
     delta_y = 0
 
