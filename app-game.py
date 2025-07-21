@@ -3,17 +3,30 @@ import constantes
 from personajes import Personaje
 
 
+
 pygame.init() 
 
 ventana = pygame.display.set_mode((constantes.ANCHO, constantes.ALTO))
 
 pygame.display.set_caption("zombie.py")
 
-player = pygame.image.load("assets//img//character//player//01.png")
-player = pygame.transform.scale(player, (player.get_width() * constantes.SCALA_JUGADOR, player.get_height() * constantes.SCALA_JUGADOR))
-jugador = Personaje(x=50, y=50, img=player)
+def escala_img(img, escale):
+    w = img.get_width() 
+    h = img.get_height()
+    new_img = pygame.transform.scale(img, (w * escale, h * escale))
+    return new_img
 
- 
+animation = []
+
+for i in range(1, 5):
+    img = pygame.image.load(f"assets//img//character//player//{i}.png")
+
+
+player = pygame.image.load("assets//img//character//player//1.png")
+player = escala_img(player, constantes.SCALA_JUGADOR)
+
+jugador = Personaje(100, 100, player)
+
 
 mover_arriba = False
 mover_abajo = False
