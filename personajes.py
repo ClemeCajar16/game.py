@@ -3,13 +3,28 @@ import constantes
 
 
 class Personaje(): 
-    def __init__(self, x, y, img):
+    def __init__(self, x, y, animation):
 
         self.flip = False
-        self.image = img
+        self.animation = animation
+
+        self.freme_index = 0
+        self.image = self.animation[self.freme_index]
+        self.update_time = pygame.time.get_ticks()
 
         self.forma = pygame.Rect(0, 0,constantes.ANCHO_JUGADOR , constantes.ALTO_JUGADOR ) 
         self.forma.center = (x, y)
+
+
+    def update(self):
+        cooldown_animation = 100
+        self.image = self.animation[self.freme_index]
+        if pygame.time.get_ticks() - self.update_time >= cooldown_animation:
+            self.freme_index += 1
+            self.update_time = pygame.time.get_ticks()
+
+        if self.freme_index >= len(self.animation):
+            self.freme_index = 0
 
     def dibujar(self, interfaz):
         image_flip = pygame.transform.flip(self.image, self.flip, flip_y=False )

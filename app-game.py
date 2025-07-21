@@ -20,12 +20,11 @@ animation = []
 
 for i in range(1, 5):
     img = pygame.image.load(f"assets//img//character//player//{i}.png")
+    img = escala_img(img, constantes.SCALA_JUGADOR)
+    animation.append(img)
 
 
-player = pygame.image.load("assets//img//character//player//1.png")
-player = escala_img(player, constantes.SCALA_JUGADOR)
-
-jugador = Personaje(100, 100, player)
+jugador = Personaje(100, 100, animation)
 
 
 mover_arriba = False
@@ -38,7 +37,9 @@ reloj = pygame.time.Clock()
 
 run = True
 while run: 
-    
+
+
+
     reloj.tick(constantes.FPS)
 
     ventana.fill(constantes.COLOR_BG)
@@ -58,6 +59,9 @@ while run:
    
 
     jugador.movimiento(delta_x=delta_x, delta_y=delta_y)
+
+    jugador.update()
+
 
     jugador.dibujar(ventana)
 
