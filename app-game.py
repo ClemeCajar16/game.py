@@ -13,7 +13,7 @@ player = pygame.image.load("assets//img//character//player//01.png")
 player = pygame.transform.scale(player, (player.get_width() * constantes.SCALA_JUGADOR, player.get_height() * constantes.SCALA_JUGADOR))
 jugador = Personaje(x=50, y=50, img=player)
 
-
+ 
 
 mover_arriba = False
 mover_abajo = False
