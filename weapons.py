@@ -10,3 +10,8 @@ class Weapon():
 
     def update(self, personaje):
         self.forma.center = personaje.forma.center
+
+
+    def dibujar(self, interfaz):
+        interfaz.blit(self.imagen, self.forma)
+      
