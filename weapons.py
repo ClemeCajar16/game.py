@@ -1,5 +1,6 @@
 import pygame
 import constantes
+import math
 
 
 class Weapon():
@@ -10,12 +11,21 @@ class Weapon():
         self.imagen = pygame.transform.rotate(self.image_original, self.angulo)
         self.forma = self.imagen.get_rect()
 
+        # TODO: MOVER ARMA
     def update(self, personaje):
         self.forma.center = personaje.forma.center
         if personaje.flip == False:
             self.forma.x += personaje.forma.width / 2
+            self.rotar(False)
+
         if personaje.flip == True:
             self.forma.x -= personaje.forma.width / 2
+            self.rotar(True)
+
+        mouse_pos = pygame.mouse.get_pos()
+        distancia_x = mouse_pos[0] - self.forma.centerx
+        distancia_y = - (mouse_pos[1] - self.forma.centery)
+        self.angulo = math.degrees(math.atan2(distancia_y, distancia_x))
 
     def rotar(self, rotar):
         if rotar == True: 
