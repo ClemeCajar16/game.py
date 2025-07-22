@@ -1,4 +1,6 @@
 import pygame
+import constantes
+
 
 class Weapon():
 
@@ -14,4 +16,4 @@ class Weapon():
 
     def dibujar(self, interfaz):
         interfaz.blit(self.imagen, self.forma)
-      
+        pygame.draw.rect(interfaz,constantes.COLOR_ARMA , self.forma, width=2)
