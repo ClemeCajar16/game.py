@@ -27,6 +27,8 @@ class Weapon():
         distancia_y = - (mouse_pos[1] - self.forma.centery)
         self.angulo = math.degrees(math.atan2(distancia_y, distancia_x))
 
+
+        
     def rotar(self, rotar):
         if rotar == True: 
             imagen_flip = pygame.transform.flip(self.image_original, flip_x=True, flip_y=False)
