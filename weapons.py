@@ -43,4 +43,13 @@ class Weapon():
         interfaz.blit(self.imagen, self.forma)
         # pygame.draw.rect(interfaz,constantes.COLOR_ARMA , self.forma, width=2)
 
-    
+
+class Bullet(pygame.sprite.Sprite):
+    def __init__(self, image, x, y, angle):
+        pygame.sprite.Sprite.__init__(self)
+        self.image_original = image
+        self.angulo = angle
+        self.image = pygame.transform.rotate(self.image_original, self.angulo)
+        self.rect = self.image.get_rect(center=(x, y))
+
+        
