@@ -31,7 +31,7 @@ jugador = Personaje(100, 100, animation)
 
 # ? BALAS
 imagen_balas = pygame.image.load(f"assets//img//weapons//bala.png").convert_alpha()
-imagen_balas = escala_img(imagen_balas, constantes.SCALA_ARMA)
+imagen_balas = escala_img(imagen_balas, constantes.SCALA_BALA)
 
 # ? ANIMACION DE PISTOLA
 
