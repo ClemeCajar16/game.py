@@ -5,14 +5,19 @@ import math
 
 class Weapon():
 
-    def __init__(self, image):
+    def __init__(self, image, imagen_bala):
+        
         self.image_original = image
         self.angulo = 0
         self.imagen = pygame.transform.rotate(self.image_original, self.angulo)
         self.forma = self.imagen.get_rect()
+        self.imagen_bala = imagen_bala
 
         # TODO: MOVER ARMA
     def update(self, personaje):
+
+        bala = None
+
         self.forma.center = personaje.forma.center
         if personaje.flip == False:
             self.forma.x += personaje.forma.width / 2
@@ -28,6 +33,10 @@ class Weapon():
         self.angulo = math.degrees(math.atan2(distancia_y, distancia_x))
 
 
+        # ? CLIK DEL MAUSE
+        if pygame.mouse.get_pressed()[0]:
+            bala = Bullet(self.imagen_bala,self.forma.centerx, self.forma.centery, self.angulo)
+        return bala
         
     def rotar(self, rotar):
         if rotar == True: 
@@ -52,4 +61,6 @@ class Bullet(pygame.sprite.Sprite):
         self.image = pygame.transform.rotate(self.image_original, self.angulo)
         self.rect = self.image.get_rect(center=(x, y))
 
-        
+
+    def dibujar(self, interfaz):
+        interfaz.blit(self.image, (self.rect.centerx, self.rect.centery))

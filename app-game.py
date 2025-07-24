@@ -29,17 +29,19 @@ for i in range(1, 5):
 
 jugador = Personaje(100, 100, animation)
 
+# ? BALAS
+imagen_balas = pygame.image.load(f"assets//img//weapons//bala.png").convert_alpha()
+imagen_balas = escala_img(imagen_balas, constantes.SCALA_ARMA)
 
 # ? ANIMACION DE PISTOLA
 
 imagen_pistola = pygame.image.load(f"assets//img//weapons//1.png").convert_alpha()
 imagen_pistola = escala_img(imagen_pistola, constantes.SCALA_ARMA)
 
-pistola = Weapon(imagen_pistola)
+pistola = Weapon(imagen_pistola, imagen_balas)
 
-# ? BALAS
-imagen_balas = pygame.image.load(f"assets//img//weapons//bala.png").convert_alpha()
-imagen_balas = escala_img(imagen_balas, constantes.SCALA_ARMA)
+# ? GRUPO DE SPRITES
+grupo_balas = pygame.sprite.Group()
 
 
 mover_arriba = False
@@ -81,8 +83,9 @@ while run:
 
 
 # ? ACTUALIZAR PISTOLA
-    pistola.update(jugador)
-
+    bala = pistola.update(jugador)
+    if bala:
+        grupo_balas.add(bala)
 
 # ? DIBUJAR JUGADOR
     jugador.dibujar(ventana)
@@ -90,6 +93,9 @@ while run:
     # ? DIBUJAR PISTOLA
     pistola.dibujar(ventana)
 
+    # ? DIBUJAR BALAS
+    for bala in grupo_balas:
+        bala.dibujar(ventana)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
