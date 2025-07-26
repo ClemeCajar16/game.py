@@ -12,6 +12,7 @@ class Weapon():
         self.imagen = pygame.transform.rotate(self.image_original, self.angulo)
         self.forma = self.imagen.get_rect()
         self.imagen_bala = imagen_bala
+        self.dispra = False
 
         # TODO: MOVER ARMA
     def update(self, personaje):
@@ -34,8 +35,13 @@ class Weapon():
 
 
         # ? CLIK DEL MAUSE
-        if pygame.mouse.get_pressed()[0]:
+        if pygame.mouse.get_pressed()[0] and self.dispra == False:
             bala = Bullet(self.imagen_bala,self.forma.centerx, self.forma.centery, self.angulo)
+            self.dispra = True
+        
+# ? RESETEAR CLICK MAUSE
+        if not pygame.mouse.get_pressed()[0]:
+            self.dispra = False
         return bala
         
     def rotar(self, rotar):
