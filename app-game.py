@@ -87,6 +87,9 @@ while run:
     if bala:
         grupo_balas.add(bala)
 
+    for bala in grupo_balas:
+        bala.update()
+
 # ? DIBUJAR JUGADOR
     jugador.dibujar(ventana)
 

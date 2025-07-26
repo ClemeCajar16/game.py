@@ -67,6 +67,18 @@ class Bullet(pygame.sprite.Sprite):
         self.image = pygame.transform.rotate(self.image_original, self.angulo)
         self.rect = self.image.get_rect(center=(x, y))
 
+# ?CALCULO DE VELOCIDAD
+        self.delta_x = math.cos(math.radians(self.angulo)) * constantes.VELOCIDAD_BALA
+        self.delta_y = - math.sin(math.radians(self.angulo)) * constantes.VELOCIDAD_BALA
+
+    def update(self):
+
+        self.rect.x += self.delta_x
+        self.rect.y += self.delta_y
+
+        # ? ver si la bala sale de la pantalla
+        if self.rect.x < 0 or self.rect.x > constantes.ANCHO or self.rect.y < 0 or self.rect.y > constantes.ALTO:
+            self.kill()
 
     def dibujar(self, interfaz):
         interfaz.blit(self.image, (self.rect.centerx, self.rect.centery - (self.rect.height / 2)))
