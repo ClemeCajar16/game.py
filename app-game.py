@@ -2,6 +2,7 @@ import pygame
 import constantes
 from personajes import Personaje
 from weapons import Weapon
+import os
 
 
 
@@ -18,6 +19,23 @@ def escala_img(img, escale):
     return new_img
 
 
+# TODO FUNCIONES
+
+# ? CONTAR ELEMENTOS
+
+def contar_elementos(directorio):
+
+    return len(os.listdir(directorio))
+
+print("Cantidad de elementos en el directorio:", contar_elementos("assets/img/character"))
+
+#? LISTAR NOMBRE ELEMENTOS 
+
+def nombres_carpetas(directorio):
+    return os.listdir(directorio)
+
+print(nombres_carpetas("assets/img/character/enemigos" ))
+
 # ? ANIMACION DE PERSONAJE 
 animation = []
 
@@ -25,7 +43,17 @@ for i in range(1, 5):
     img = pygame.image.load(f"assets//img//character//player//{i}.png")
     img = escala_img(img, constantes.SCALA_JUGADOR)
     animation.append(img)
+     
+    #? enemigos 
+    directorio_enemigos = "assets/img/character/enemigos"
+    tipos_enemigos = nombres_carpetas(directorio_enemigos)
+    animacion_enemigos = []
 
+    for enemy in tipos_enemigos:
+        lista_temporal = []
+        ruta_temporal = "assets/img/character/enemigos/" + enemy
+        nume_animaciones = contar_elementos(ruta_temporal)
+        print(nume_animaciones)
 
 jugador = Personaje(100, 100, animation)
 
