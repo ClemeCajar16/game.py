@@ -63,10 +63,26 @@ for i in range(1, 5):
 
         print(animacion_enemigos)
 
-        print(nume_animaciones)
+
 
 
 jugador = Personaje(100, 100, animation)
+
+# ? CREAR ENEMIGOS 
+mounstruo = Personaje(x=400, y=300, animation=animacion_enemigos[0])
+zombie = Personaje(x=600, y=300, animation=animacion_enemigos[1])
+mounstruo2 = Personaje(x=450, y=350, animation=animacion_enemigos[0])
+zombie2 = Personaje(x=700, y=350, animation=animacion_enemigos[1])
+
+
+# LISTA DE ENEMIGOS
+lista_enemigos = []
+lista_enemigos.append(mounstruo)
+lista_enemigos.append(zombie)
+lista_enemigos.append(mounstruo2)
+lista_enemigos.append(zombie2)
+
+ 
 
 # ? BALAS
 imagen_balas = pygame.image.load(f"assets//img//weapons//bala.png").convert_alpha()
@@ -119,6 +135,11 @@ while run:
 
     # ? ACTUALIZAR JUGADOR
     jugador.update()
+    
+
+    # ? ACTUALIZAR ENEMIGOS
+    for enemigo in lista_enemigos:
+        enemigo.update()
 
 
 # ? ACTUALIZAR PISTOLA
@@ -131,6 +152,10 @@ while run:
 
 # ? DIBUJAR JUGADOR
     jugador.dibujar(ventana)
+
+    # ? DIBUJAR ENEMIGOS
+    for enemigo in lista_enemigos:
+        enemigo.dibujar(ventana)
 
     # ? DIBUJAR PISTOLA
     pistola.dibujar(ventana)
