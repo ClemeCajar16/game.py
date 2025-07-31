@@ -19,7 +19,7 @@ def escala_img(img, escale):
     return new_img
 
 
-# TODO FUNCIONES
+# TODO: FUNCIONES
 
 # ? CONTAR ELEMENTOS
 
@@ -53,7 +53,18 @@ for i in range(1, 5):
         lista_temporal = []
         ruta_temporal = "assets/img/character/enemigos/" + enemy
         nume_animaciones = contar_elementos(ruta_temporal)
+        
+        for i in range (nume_animaciones): 
+            img_enemigo = pygame.image.load(f"{ruta_temporal}/{enemy}_{i + 1}.png").convert_alpha()
+            img_enemigo = escala_img(img_enemigo, constantes.ESCALA_ENEMIGOS)
+            lista_temporal.append(img_enemigo)
+
+        animacion_enemigos.append(lista_temporal)
+
+        print(animacion_enemigos)
+
         print(nume_animaciones)
+
 
 jugador = Personaje(100, 100, animation)
 
