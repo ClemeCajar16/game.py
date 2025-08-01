@@ -4,7 +4,7 @@ import constantes
 
 class Personaje(): 
     def __init__(self, x, y, animation, energia):
-
+        self.vivo = True
         self.energia = energia
         self.flip = False
         self.animation = animation
@@ -18,6 +18,12 @@ class Personaje():
 
 
     def update(self):
+
+        if self.energia <= 0:
+            self.energia = 0 
+            self.vivo = False
+            
+
         cooldown_animation = 100
         self.image = self.animation[self.freme_index]
         if pygame.time.get_ticks() - self.update_time >= cooldown_animation:

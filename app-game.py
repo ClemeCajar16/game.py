@@ -69,9 +69,9 @@ for i in range(1, 5):
 jugador = Personaje(100, 100, animation, energia=100)
 
 # ? CREAR ENEMIGOS 
-mounstruo = Personaje(x=400, y=300, animation=animacion_enemigos[0], energia=100)
+mounstruo = Personaje(x=400, y=300, animation=animacion_enemigos[0], energia=200)
 zombie = Personaje(x=600, y=300, animation=animacion_enemigos[1], energia=100)
-mounstruo2 = Personaje(x=450, y=350, animation=animacion_enemigos[0], energia=100)
+mounstruo2 = Personaje(x=450, y=350, animation=animacion_enemigos[0], energia=200)
 zombie2 = Personaje(x=700, y=350, animation=animacion_enemigos[1], energia=100)
 
 
