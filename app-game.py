@@ -66,13 +66,13 @@ for i in range(1, 5):
 
 
 
-jugador = Personaje(100, 100, animation)
+jugador = Personaje(100, 100, animation, energia=100)
 
 # ? CREAR ENEMIGOS 
-mounstruo = Personaje(x=400, y=300, animation=animacion_enemigos[0])
-zombie = Personaje(x=600, y=300, animation=animacion_enemigos[1])
-mounstruo2 = Personaje(x=450, y=350, animation=animacion_enemigos[0])
-zombie2 = Personaje(x=700, y=350, animation=animacion_enemigos[1])
+mounstruo = Personaje(x=400, y=300, animation=animacion_enemigos[0], energia=100)
+zombie = Personaje(x=600, y=300, animation=animacion_enemigos[1], energia=100)
+mounstruo2 = Personaje(x=450, y=350, animation=animacion_enemigos[0], energia=100)
+zombie2 = Personaje(x=700, y=350, animation=animacion_enemigos[1], energia=100)
 
 
 # LISTA DE ENEMIGOS
@@ -140,6 +140,9 @@ while run:
     # ? ACTUALIZAR ENEMIGOS
     for enemigo in lista_enemigos:
         enemigo.update()
+        
+        print(enemigo.energia)
+
 
 
 # ? ACTUALIZAR PISTOLA
@@ -148,7 +151,7 @@ while run:
         grupo_balas.add(bala)
 
     for bala in grupo_balas:
-        bala.update()
+        bala.update(lista_enemigos)
 
 # ? DIBUJAR JUGADOR
     jugador.dibujar(ventana)

@@ -3,8 +3,9 @@ import constantes
 
 
 class Personaje(): 
-    def __init__(self, x, y, animation):
+    def __init__(self, x, y, animation, energia):
 
+        self.energia = energia
         self.flip = False
         self.animation = animation
 
